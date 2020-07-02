@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Calculator</title>
+</head>
+<style>
+    body {
+        background-color: #333;
+        user-select: none;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 4px;
+        background-color: ivory;
+        padding: 4px;
+        border-radius: 5px;
+        max-width: 360px;
+        font-family: "Helvetica";
+        font-size: 40px;
+    
+    }
+    .item {
+        background-color: ivory;
+        color: darkslategray;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-weight: lighter;
+
+    }
+    form {
+        max-width: 100%;
+    }
+    input {
+        width: 100%;
+        height: 60px;
+        border: none;
+        font-size: 30px;
+        outline: none;
+        text-align: right;
+    }
+    .input {
+        grid-column: 1/-1;
+        padding: 0%;
+    }
+    .lalalaclean {
+        grid-column: 1/3;
+        background-color: lavenderblush;
+        color: orange;
+    }
+    .lalala {
+        color: orange;
+    }
+    .lalalaequal {
+        color: orange;
+        grid-column: 4;
+        grid-row: 6/8;
+        background-color: lavenderblush; 
+        ;
+    }
+    .lalalaback {
+        color: orange;
+        grid-column: 3/-1;
+    }
+    .lalalazero {
+        grid-column: 1/3;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="item input"><form name="form"><input type="text"
+        name="textview" readonly></form></div>
+        <div class="item lalalaclean" onclick="lalalaclean()">C</div>
+        <div class="item lalalaback" onclick="lalalaback()">&larr;</div>
+        <div class="item lalala" onclick="insert('+')">+</div>
+        <div class="item lalala" onclick="insert('-')">-</div>
+        <div class="item lalala" onclick="insert('*')">&times;</div>
+        <div class="item lalala" onclick="insert('/')">&divide;</div>
+        <div class="item" onclick="insert('7')">7</div>
+        <div class="item" onclick="insert('8')">8</div>
+        <div class="item" onclick="insert('9')">9</div>
+        <div class="item lalala" onclick="insert('(')">(</div>
+        <div class="item" onclick="insert('4')">4</div>
+        <div class="item" onclick="insert('5')">5</div>
+        <div class="item" onclick="insert('6')">6</div>
+        <div class="item lalala" onclick="insert(')')">)</div>
+        <div class="item" onclick="insert('1')">1</div>
+        <div class="item" onclick="insert('2')">2</div>
+        <div class="item" onclick="insert('3')">3</div>
+        <div class="item lalalaequal" onclick="lalalaequal()">=</div>
+        <div class="item lalalazero" onclick="insert('0')">0</div>
+        <div class="item" onclick="insert('.')">.</div>
+    </div>
+    <script>
+        function insert(num) {
+            document.form.textview.value = 
+            document.form.textview.value + num;
+        }
+        function lalalaclean() {
+            document.form.textview.value = "";
+        }
+        function lalalaback() {
+            var exp = document.form.textview.value;
+            document.form.textview.value = exp.substring(0,exp.length-1);
+        }
+        function lalalaequal() {
+            var exp = document.form.textview.value;
+            if(exp) {
+                document.form.textview.value = eval(exp);
+            }
+        }
+    </script>
+</body>
+</html>
+   
