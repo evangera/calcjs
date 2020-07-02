@@ -1,3 +1,5 @@
 # calcjs
 simple calculator in html with css+js
-runs by index.html
+
+
+to run click on index.html > Open this file in GitHub Desktop
